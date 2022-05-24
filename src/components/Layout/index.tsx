@@ -1,8 +1,14 @@
+import Header from "../Header";
 const Layout = () => {
+
   return (
     <>
       <div className='min-h-full mt-24'>
-        <main className='pb-8'>
+        <Header
+          subheading='Shorten any url'
+          description='Enter a Link into the form and click on the Button to generate a short Link.'
+        />
+        <main className='pb-8 mt-16'>
           <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
             <h1 className='sr-only'>Page title</h1>
             {/* Main 3 column grid */}
