@@ -1,9 +1,15 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div>
-      <h1 className='underline text-3xl'>  surl hortner </h1>
+    <div className='h-full bg-gray-100'>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
