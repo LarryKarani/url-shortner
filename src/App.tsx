@@ -34,7 +34,6 @@ const [readValue, setValue, ,] = useLocalStorage();
             <Routes>
               <Route path='/' element={<Layout/>} />
             </Routes>
-            <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
         </Context.Provider>
       </BrowserRouter>
