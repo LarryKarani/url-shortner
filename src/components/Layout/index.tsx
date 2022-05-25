@@ -1,5 +1,14 @@
-import Header from "../Header";
-const Layout = () => {
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import Alert from '../Alert';
+import Header from '../Header';
+import List from '../List';
+import { UrlForm } from '../UrlForm';
+
+const Layout: React.FC = () => {
+  const [readValue, , ,] = useLocalStorage();
+  const items = readValue('urls')
+
+  console.log(items)
 
   return (
     <>
@@ -10,29 +19,38 @@ const Layout = () => {
         />
         <main className='pb-8 mt-16'>
           <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
-            <h1 className='sr-only'>Page title</h1>
-            {/* Main 3 column grid */}
             <div className='grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8'>
-              {/* Left column */}
               <div className='grid grid-cols-1 gap-4 lg:col-span-2'>
                 <section aria-labelledby='section-1-title'>
                   <h2 className='sr-only' id='section-1-title'>
-                    Section title
+                    Url Form Section
                   </h2>
                   <div className='rounded-lg bg-white overflow-hidden shadow'>
-                    <div className='p-6'>{/* Your content */}</div>
+                    <div className='p-6'>
+                      <UrlForm />
+                    </div>
                   </div>
                 </section>
               </div>
-
-              {/* Right column */}
               <div className='grid grid-cols-1 gap-4'>
                 <section aria-labelledby='section-2-title'>
                   <h2 className='sr-only' id='section-2-title'>
-                    Section title
+                    List form section
                   </h2>
                   <div className='rounded-lg bg-white overflow-hidden shadow'>
-                    <div className='p-6'>{/* Your content */}</div>
+                    <div className='p-6'>
+                      <label
+                        htmlFor='url'
+                        className='block text-sm font-medium text-indigo-900 mb-3'
+                      >
+                        Short URLs history
+                      </label>
+                      {items && items?.length > 0 ? (
+                        <List listData={items} />
+                      ) : (
+                        <Alert message='You do not have any shortened URLs' />
+                      )}
+                    </div>
                   </div>
                 </section>
               </div>
@@ -42,7 +60,6 @@ const Layout = () => {
       </div>
     </>
   );
-}
+};
 
-
-export default Layout
+export default Layout;
