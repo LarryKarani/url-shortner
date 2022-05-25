@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { Context } from './context/context';
 import Layout from './components/Layout';
 import { useEffect, useState } from 'react';
@@ -16,7 +15,7 @@ useEffect(() => {
   }else{
     setValue('urls', []);
   } 
-},[])
+})
 const [contextValue, setContextValue] = useState<any>({
   urls: [],
 });

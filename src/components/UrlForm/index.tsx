@@ -76,6 +76,7 @@ export const UrlForm: React.FC<Props> = (props) => {
           setValue('urls', emptyUrl);
       }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[data])
 
   return (
